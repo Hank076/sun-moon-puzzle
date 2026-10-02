@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sun &amp; Moon</title>
+  <meta name="description" content="Try this Sun &amp; Moon puzzle · 來挑戰這一題 Sun &amp; Moon">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f2f2f7;
+      --card: #ffffff;
+      --text: #1c1c1e;
+      --muted: #6c6c70;
+      --accent: #d9730d;
+      --accent-text: #ffffff;
+      --sun: #f28c14;
+      --moon: #5e5ce6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --card: #1c1c1e;
+        --text: #f2f2f7;
+        --muted: #98989f;
+        --accent: #ffa94d;
+        --accent-text: #1c1c1e;
+        --moon: #7d7aff;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .logo { font-size: 44px; letter-spacing: 4px; }
+    .logo .sun { color: var(--sun); }
+    .logo .moon { color: var(--moon); }
+    h1 { font-size: 26px; margin: 8px 0 4px; }
+    .puzzle { color: var(--muted); font-variant-numeric: tabular-nums; margin: 0 0 24px; }
+    .button {
+      display: block;
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+    }
+    .note { color: var(--muted); font-size: 14px; margin: 20px 0 0; }
+    nav { text-align: right; font-size: 14px; margin: -12px -4px 8px 0; }
+    nav a { color: var(--muted); margin-left: 12px; }
+    nav a[aria-current] { color: var(--text); font-weight: 600; text-decoration: none; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav>
+      <a href="#en" data-lang="en">English</a>
+      <a href="#zh-Hant" data-lang="zh-Hant">繁體中文</a>
+    </nav>
+    <div class="logo" aria-hidden="true"><span class="sun">☀&#xFE0E;</span><span class="moon">☾</span></div>
+    <h1>Sun &amp; Moon</h1>
+
+    <section id="valid" hidden>
+      <p class="puzzle" id="puzzle"></p>
+      <a class="button" id="open" data-text="open"></a>
+      <p class="note" data-text="note"></p>
+    </section>
+
+    <section id="invalid" hidden>
+      <p class="puzzle" data-text="invalid"></p>
+    </section>
+  </main>
+
+  <script>
+    // 連結格式：/SMPuzzle/play?d=<easy|medium|hard>&s=<1 到 99999999>
+    // 文字與 App 的 Localizable.xcstrings 一致；依瀏覽器語言顯示，上方的連結可以切換
+    const strings = {
+      "en": {
+        htmlLang: "en",
+        difficulty: { easy: "Easy", medium: "Medium", hard: "Hard" },
+        puzzle: (difficulty, id) => `${difficulty} · ID ${id}`,
+        open: "Open in App",
+        note: "If you have the app but this page stays open, tap the button above. You can also tap “Enter ID” on the app’s home screen and enter the same ID and difficulty.",
+        invalid: "This link is incomplete. The puzzle can’t be found."
+      },
+      "zh-Hant": {
+        htmlLang: "zh-Hant-TW",
+        difficulty: { easy: "簡單", medium: "中等", hard: "困難" },
+        puzzle: (difficulty, id) => `${difficulty}・ID ${id}`,
+        open: "在 App 中開啟",
+        note: "已安裝 App 卻停在這個網頁時，按上面的按鈕開啟。也可以在 App 首頁點「輸入 ID」，輸入相同的號碼與難度。",
+        invalid: "連結不完整，找不到題目。"
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const difficulty = params.get("d");
+    const seed = params.get("s");
+    const seedNumber = Number(seed);
+    const isValid = ["easy", "medium", "hard"].includes(difficulty) && /^\d{1,8}$/.test(seed ?? "") && seedNumber >= 1;
+
+    if (isValid) {
+      document.getElementById("open").href =
+        `smpuzzle://play?d=${encodeURIComponent(difficulty)}&s=${seedNumber}`;
+      document.getElementById("valid").hidden = false;
+    } else {
+      document.getElementById("invalid").hidden = false;
+    }
+
+    function show(lang) {
+      const text = strings[lang];
+      document.documentElement.lang = text.htmlLang;
+      document.querySelectorAll("[data-text]").forEach(element => element.textContent = text[element.dataset.text]);
+      if (isValid) document.getElementById("puzzle").textContent = text.puzzle(text.difficulty[difficulty], seedNumber);
+      document.querySelectorAll("nav a").forEach(link => {
+        if (link.dataset.lang === lang) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    }
+    function showFromLocation() {
+      const fromHash = location.hash.slice(1);
+      show(fromHash in strings ? fromHash : (navigator.language.toLowerCase().startsWith("zh") ? "zh-Hant" : "en"));
+    }
+    showFromLocation();
+    window.addEventListener("hashchange", showFromLocation);
+    document.querySelectorAll("nav a").forEach(link => link.addEventListener("click", event => {
+      event.preventDefault();
+      show(link.dataset.lang);
+      history.replaceState(null, "", location.search + "#" + link.dataset.lang);
+    }));
+  </script>
+</body>
+</html>

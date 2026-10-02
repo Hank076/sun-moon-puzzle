@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["NQ5QFN5794.dev.lab076.SMPuzzle"],
+        "components": [
+          { "/": "/SMPuzzle/play*", "comment": "Sun & Moon 的分享題目連結" }
+        ]
+      }
+    ]
+  }
+}

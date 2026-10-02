@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sun &amp; Moon — Support</title>
+  <meta name="description" content="Support for the Sun &amp; Moon puzzle app.">
+  <style>
+    /* 配色與 App 的 Palette 相同 */
+    :root {
+      color-scheme: light dark;
+      --bg: #fbf6ee;
+      --card: #ffffff;
+      --line: #eae2d4;
+      --text: #1e1d3f;
+      --muted: #5b5973;
+      --accent: #a4520a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14132b;
+        --card: #201f42;
+        --line: #2e2d58;
+        --text: #f2f0fa;
+        --muted: #c4c1da;
+        --accent: #ffb25a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 16px 48px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 24px;
+    }
+    nav { text-align: right; font-size: 14px; margin-bottom: 8px; }
+    nav a { margin-left: 12px; }
+    a { color: var(--accent); }
+    h1 { font-size: 26px; margin: 0 0 4px; }
+    h2 { font-size: 18px; margin: 28px 0 8px; }
+    p, li { font-size: 16px; }
+    ul { padding-left: 22px; }
+    .date { color: var(--muted); margin: 0 0 16px; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav>
+      <a href="#en" data-lang="en">English</a>
+      <a href="#zh-Hant" data-lang="zh-Hant">繁體中文</a>
+    </nav>
+
+    <article id="en" lang="en">
+      <h1>Sun &amp; Moon Support</h1>
+      <p class="date">Questions, problems, or suggestions about the Sun &amp; Moon app</p>
+
+      <h2>Contact</h2>
+      <p>Email <a href="mailto:support@lab076.dev">support@lab076.dev</a>. Replies are sent in English or Traditional Chinese.</p>
+      <p>When you report a problem, please include:</p>
+      <ul>
+        <li>Your device model and iOS version</li>
+        <li>The app version, shown at the bottom of Settings in the app</li>
+        <li>The puzzle ID, if the problem is about a specific puzzle</li>
+        <li>What you did and what happened</li>
+      </ul>
+
+      <h2>Restoring your purchase</h2>
+      <p>If you bought “Remove All Ads” and ads still appear, for example after reinstalling the app or on a new device, open Settings in the app and tap Restore on the Full Version card. Use the same Apple Account that made the purchase.</p>
+
+      <h2>Refunds</h2>
+      <p>Purchases are processed by Apple. To request a refund, go to <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+      <h2>Privacy</h2>
+      <p>See the <a href="../privacy/#en">Privacy Policy</a>. For privacy questions, use the email address above.</p>
+    </article>
+
+    <article id="zh-Hant" lang="zh-Hant-TW">
+      <h1>Sun &amp; Moon 支援</h1>
+      <p class="date">關於 Sun &amp; Moon App 的問題、錯誤回報與建議</p>
+
+      <h2>聯絡我們</h2>
+      <p>請寄信到 <a href="mailto:support@lab076.dev">support@lab076.dev</a>。我們以繁體中文或英文回覆。</p>
+      <p>回報問題時，請附上：</p>
+      <ul>
+        <li>裝置型號與 iOS 版本</li>
+        <li>App 版本，顯示在 App「設定」的最下方</li>
+        <li>題目的 ID（問題與特定題目有關時）</li>
+        <li>你做了什麼，以及發生了什麼</li>
+      </ul>
+
+      <h2>恢復購買</h2>
+      <p>已經購買「移除所有廣告」卻仍然看到廣告時，例如重新安裝 App 或換了新裝置，請開啟 App 的「設定」，在完整版卡片上點「恢復購買」。請使用當初購買的同一個 Apple 帳號。</p>
+
+      <h2>退款</h2>
+      <p>購買由 Apple 處理。要申請退款，請到 <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>。</p>
+
+      <h2>隱私權</h2>
+      <p>請參考<a href="../privacy/#zh-Hant">隱私權政策</a>。有隱私相關問題時，請寄信到上面的信箱。</p>
+    </article>
+  </main>
+
+  <script>
+    // 依瀏覽器語言只顯示一種語言；上方的連結可以切換。沒有 JavaScript 時兩種語言都會顯示
+    const articles = { "en": document.getElementById("en"), "zh-Hant": document.getElementById("zh-Hant") };
+    function show(lang) {
+      for (const [key, article] of Object.entries(articles)) article.hidden = key !== lang;
+      document.documentElement.lang = lang === "en" ? "en" : "zh-Hant-TW";
+    }
+    function showFromLocation() {
+      const fromHash = location.hash.slice(1);
+      show(fromHash in articles ? fromHash : (navigator.language.toLowerCase().startsWith("zh") ? "zh-Hant" : "en"));
+      window.scrollTo(0, 0);
+    }
+    showFromLocation();
+    window.addEventListener("hashchange", showFromLocation);
+    document.querySelectorAll("nav a").forEach(link => link.addEventListener("click", event => {
+      event.preventDefault();
+      show(link.dataset.lang);
+      history.replaceState(null, "", "#" + link.dataset.lang);
+    }));
+  </script>
+</body>
+</html>

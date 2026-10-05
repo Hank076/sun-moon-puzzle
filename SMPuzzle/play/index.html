@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sun &amp; Moon</title>
+  <meta name="description" content="Try this Sun &amp; Moon puzzle · 來挑戰這一題 Sun &amp; Moon">
+  <style>
+    /* 配色與 App 的 Palette 相同 */
+    :root {
+      color-scheme: light dark;
+      --bg: #fbf6ee;
+      --surface: #ffffff;
+      --ink: #1e1d3f;
+      --body: #3f3d5c;
+      --muted: #5b5973;
+      --hairline: #eae2d4;
+      --line: #e6ddce;
+      --primary: #2b2a62;
+      --secondary-text: #2b2a62;
+      --chip: #eceaf8;
+      --chip-text: #2b2a62;
+      --cream: #fff2df;
+      --accent: #a4520a;
+      --accent-hover: #7e3e06;
+      --sun: #ee8a12;
+      --dot-off: #e6ddce;
+      --segment: #f1e9dc;
+      --segment-on: #ffffff;
+      --step: #2b2a62;
+      --step-text: #ffffff;
+      --error: #c62f36;
+      --error-bg: #fde6e4;
+      --shadow: rgba(43, 42, 98, 0.18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14132b;
+        --surface: #201f42;
+        --ink: #f2f0fa;
+        --body: #e6e3f2;
+        --muted: #c4c1da;
+        --hairline: #2e2d58;
+        --line: #3a3968;
+        --primary: #4845b0;
+        --secondary-text: #c9c8ff;
+        --chip: #2f2d66;
+        --chip-text: #c9c8ff;
+        --cream: #3a2a1b;
+        --accent: #ffb25a;
+        --accent-hover: #ffc985;
+        --dot-off: #3a3968;
+        --segment: #201f42;
+        --segment-on: #3a3968;
+        --step: #ffb25a;
+        --step-text: #1a1936;
+        --error: #e5484d;
+        --error-bg: #4a1e26;
+        --shadow: rgba(0, 0, 0, 0.4);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: max(16px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom));
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    .container { width: 100%; max-width: 420px; margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--ink); }
+    .logo { display: block; overflow: hidden; flex: none; }
+    .logo svg { display: block; width: 100%; height: 100%; }
+    .brand .logo { width: 30px; height: 30px; border-radius: 8px; }
+    .languages { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--segment); }
+    .languages a {
+      display: flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px;
+      font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none;
+    }
+    .languages a[aria-current] { font-weight: 700; color: var(--ink); background: var(--segment-on); box-shadow: 0 1px 2px rgba(30, 29, 63, 0.12); }
+    main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 28px 0 24px; }
+    .hero-logo { width: 112px; height: 112px; border-radius: 28px; box-shadow: 0 12px 30px var(--shadow); }
+    .eyebrow { margin: 24px 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; color: var(--accent); }
+    h1 { margin: 0; font-size: 30px; line-height: 1.2; font-weight: 800; letter-spacing: -0.4px; text-align: center; }
+    .puzzle {
+      width: 100%; margin-top: 24px; padding: 20px; border: 1px solid var(--hairline); border-radius: 24px; background: var(--surface);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .puzzle-id { display: flex; flex-direction: column; gap: 8px; }
+    .puzzle-id span { font-size: 13px; color: var(--muted); }
+    .puzzle-id strong { font-size: 32px; font-weight: 800; letter-spacing: 0.5px; font-variant-numeric: tabular-nums; line-height: 1.1; }
+    .level { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .chip { padding: 4px 12px; border-radius: 999px; background: var(--chip); color: var(--chip-text); font-size: 14px; font-weight: 700; }
+    .dots { display: flex; gap: 5px; }
+    .dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--dot-off); }
+    .dots span.on { background: var(--sun); }
+    .button {
+      width: 100%; min-height: 56px; margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 10px;
+      border-radius: 16px; background: var(--primary); color: #ffffff; font-size: 17px; font-weight: 700; text-decoration: none;
+    }
+    .button:hover { color: #ffffff; filter: brightness(1.1); }
+    .button.secondary {
+      min-height: 52px; margin-top: 10px; padding: 0 16px; text-align: center; border: 1.5px solid var(--line);
+      background: var(--surface); color: var(--secondary-text); font-size: 16px; font-weight: 600;
+    }
+    .button.secondary:hover { color: var(--secondary-text); filter: none; border-color: var(--secondary-text); }
+    .help { width: 100%; margin-top: 24px; padding: 16px 18px; border-radius: 20px; background: var(--cream); }
+    .help h2 { margin: 0 0 10px; font-size: 15px; font-weight: 700; }
+    .help ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--body); }
+    .help li { display: flex; gap: 10px; }
+    .help li::before {
+      flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--step); color: var(--step-text);
+      font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+    }
+    .help li:nth-child(1)::before { content: "1"; }
+    .help li:nth-child(2)::before { content: "2"; }
+    #invalid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%; }
+    .error-icon { width: 88px; height: 88px; border-radius: 50%; background: var(--error-bg); color: var(--error); display: flex; align-items: center; justify-content: center; }
+    #invalid h1 { margin: 24px 0 8px; font-size: 24px; line-height: 1.3; }
+    #invalid p { margin: 0; max-width: 300px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+    #invalid .button { margin-top: 32px; }
+    footer { display: flex; justify-content: center; gap: 20px; font-size: 13px; }
+    footer a { min-height: 44px; display: flex; align-items: center; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="brand">
+        <span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>
+        Sun &amp; Moon
+      </span>
+      <nav class="languages" data-label="languages">
+        <a href="#en" data-lang="en">EN</a>
+        <a href="#zh-Hant" data-lang="zh-Hant">繁中</a>
+      </nav>
+    </header>
+  </div>
+
+  <main class="container">
+    <section id="valid" hidden>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <span class="logo hero-logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>
+        <p class="eyebrow" data-text="eyebrow"></p>
+        <h1>Sun &amp; Moon</h1>
+      </div>
+
+      <section class="puzzle" data-label="puzzle">
+        <div class="puzzle-id">
+          <span data-text="idLabel"></span>
+          <strong id="seed"></strong>
+        </div>
+        <div class="level">
+          <span class="chip" id="difficulty"></span>
+          <div class="dots" id="dots" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <a class="button" id="open">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>
+        <span data-text="open"></span>
+      </a>
+      <a class="button secondary" href="https://apps.apple.com/app/id6818013904" data-text="download"></a>
+
+      <section class="help">
+        <h2 data-text="helpTitle"></h2>
+        <ol>
+          <li data-text="helpStep1"></li>
+          <li id="help-step-2"></li>
+        </ol>
+      </section>
+    </section>
+
+    <section id="invalid" hidden>
+      <div class="error-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/><path d="M4 4l16 16"/></svg>
+      </div>
+      <h1 data-text="invalid"></h1>
+      <p data-text="invalidHelp"></p>
+      <a class="button" href="https://apps.apple.com/app/id6818013904" data-text="downloadNamed"></a>
+    </section>
+  </main>
+
+  <footer class="container">
+    <a data-page="support" data-text="support"></a>
+    <a data-page="privacy" data-text="privacy"></a>
+  </footer>
+
+  <script>
+    // 連結格式：/SMPuzzle/play?d=<easy|medium|hard>&s=<1 到 99999999>
+    // 難度名稱與 App 的 Localizable.xcstrings 一致；依瀏覽器語言顯示，上方的連結可以切換
+    const levels = { easy: 1, medium: 2, hard: 3 };
+    const strings = {
+      "en": {
+        htmlLang: "en",
+        languages: "Language",
+        puzzle: "Puzzle",
+        difficulty: { easy: "Easy", medium: "Medium", hard: "Hard" },
+        eyebrow: "TRY THIS PUZZLE",
+        idLabel: "Puzzle ID",
+        open: "Open in App",
+        download: "Get the app on the App Store",
+        downloadNamed: "Get Sun & Moon on the App Store",
+        helpTitle: "App didn’t open?",
+        helpStep1: "Open Sun & Moon and tap “Enter ID” on the home screen.",
+        helpStep2: (id, difficulty) => `Enter ${id} and choose ${difficulty}.`,
+        invalid: "This link is incomplete. The puzzle can’t be found.",
+        invalidHelp: "Ask the sender for the link again, or tap “Enter ID” on the app’s home screen and enter the puzzle’s ID and difficulty.",
+        support: "Support",
+        privacy: "Privacy Policy"
+      },
+      "zh-Hant": {
+        htmlLang: "zh-Hant-TW",
+        languages: "語言",
+        puzzle: "題目",
+        difficulty: { easy: "簡單", medium: "中等", hard: "困難" },
+        eyebrow: "邀請你挑戰這一題",
+        idLabel: "題目 ID",
+        open: "在 App 中開啟",
+        download: "還沒有 App？到 App Store 下載",
+        downloadNamed: "到 App Store 下載 Sun & Moon",
+        helpTitle: "按了沒有開啟 App？",
+        helpStep1: "開啟 Sun & Moon，在首頁點「輸入 ID」。",
+        helpStep2: (id, difficulty) => `輸入 ${id}，難度選「${difficulty}」。`,
+        invalid: "連結不完整，找不到題目。",
+        invalidHelp: "請分享的人再傳一次連結，或在 App 首頁點「輸入 ID」，輸入題目的號碼與難度。",
+        support: "支援",
+        privacy: "隱私權政策"
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const difficulty = params.get("d");
+    const seed = params.get("s");
+    const seedNumber = Number(seed);
+    const isValid = Object.hasOwn(levels, difficulty ?? "") && /^\d{1,8}$/.test(seed ?? "") && seedNumber >= 1;
+
+    if (isValid) {
+      document.getElementById("open").href =
+        `smpuzzle://play?d=${encodeURIComponent(difficulty)}&s=${seedNumber}`;
+      document.getElementById("seed").textContent = String(seedNumber);
+      document.getElementById("dots").innerHTML =
+        [1, 2, 3].map(level => `<span${level <= levels[difficulty] ? ' class="on"' : ""}></span>`).join("");
+      document.getElementById("valid").hidden = false;
+    } else {
+      document.getElementById("invalid").hidden = false;
+    }
+
+    function show(lang) {
+      const text = strings[lang];
+      document.documentElement.lang = text.htmlLang;
+      document.querySelectorAll("[data-text]").forEach(element => element.textContent = text[element.dataset.text]);
+      document.querySelectorAll("[data-label]").forEach(element => element.setAttribute("aria-label", text[element.dataset.label]));
+      document.querySelectorAll("[data-page]").forEach(link => link.href = `../${link.dataset.page}/#${lang}`);
+      if (isValid) {
+        const name = text.difficulty[difficulty];
+        document.getElementById("difficulty").textContent = name;
+        document.getElementById("help-step-2").textContent = text.helpStep2(seedNumber, name);
+      }
+      document.querySelectorAll(".languages a").forEach(link => {
+        if (link.dataset.lang === lang) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    }
+    function showFromLocation() {
+      const fromHash = location.hash.slice(1);
+      show(fromHash in strings ? fromHash : (navigator.language.toLowerCase().startsWith("zh") ? "zh-Hant" : "en"));
+    }
+    showFromLocation();
+    window.addEventListener("hashchange", showFromLocation);
+    document.querySelectorAll(".languages a").forEach(link => link.addEventListener("click", event => {
+      event.preventDefault();
+      show(link.dataset.lang);
+      history.replaceState(null, "", location.search + "#" + link.dataset.lang);
+    }));
+  </script>
+</body>
+</html>

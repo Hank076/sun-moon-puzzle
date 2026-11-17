@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sun &amp; Moon — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Sun &amp; Moon puzzle app.">
+  <style>
+    /* 配色與 App 的 Palette 相同 */
+    :root {
+      color-scheme: light dark;
+      --bg: #fbf6ee;
+      --surface: #ffffff;
+      --ink: #1e1d3f;
+      --body: #3f3d5c;
+      --muted: #5b5973;
+      --hairline: #eae2d4;
+      --primary: #2b2a62;
+      --chip: #eceaf8;
+      --chip-text: #2b2a62;
+      --cream: #fff2df;
+      --accent: #a4520a;
+      --accent-hover: #7e3e06;
+      --sun: #ee8a12;
+      --segment: #f1e9dc;
+      --segment-on: #ffffff;
+      --contact: #2b2a62;
+      --contact-icon: #4845b0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14132b;
+        --surface: #201f42;
+        --ink: #f2f0fa;
+        --body: #e6e3f2;
+        --muted: #c4c1da;
+        --hairline: #2e2d58;
+        --primary: #4845b0;
+        --chip: #2f2d66;
+        --chip-text: #c9c8ff;
+        --cream: #3a2a1b;
+        --accent: #ffb25a;
+        --accent-hover: #ffc985;
+        --segment: #201f42;
+        --segment-on: #3a3968;
+        --contact: #2f2d66;
+        --contact-icon: #4845b0;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+    .site-header { border-bottom: 1px solid var(--hairline); }
+    .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 14px; padding-bottom: 14px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
+    .brand:hover { color: var(--ink); }
+    .logo { display: block; flex: none; width: 32px; height: 32px; border-radius: 9px; overflow: hidden; }
+    .logo svg { display: block; width: 100%; height: 100%; }
+    .header-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+    .pages { display: flex; gap: 4px; }
+    .pages a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 12px; font-size: 15px; font-weight: 600; color: var(--muted); text-decoration: none; }
+    .pages a:hover { color: var(--ink); }
+    .pages a[aria-current] { font-weight: 700; color: var(--chip-text); background: var(--chip); }
+    .languages { position: relative; display: inline-flex; align-items: center; }
+    .languages select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 0 36px 0 16px; border: 0; border-radius: 999px; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); background: var(--segment); cursor: pointer; }
+    .languages select:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    .languages::after { content: ""; position: absolute; right: 16px; width: 7px; height: 7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-2px) rotate(45deg); pointer-events: none; }
+    main.wrap { padding-top: 48px; padding-bottom: 64px; }
+    .intro { max-width: 720px; }
+    h1 { margin: 0; font-size: clamp(32px, 6vw, 44px); line-height: 1.15; font-weight: 800; letter-spacing: -0.5px; }
+    .lede { margin: 16px 0 0; font-size: 18px; color: var(--body); }
+    .eyebrow { margin: 0 0 16px; font-size: 14px; font-weight: 700; letter-spacing: 1px; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .card h3 { margin: 0; font-size: 17px; font-weight: 700; }
+    .card p { margin: 0; font-size: 15px; color: var(--body); }
+    .icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--chip); color: var(--chip-text); }
+    .icon.warm { background: var(--cream); color: var(--accent); }
+    .icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .site-footer { border-top: 1px solid var(--hairline); }
+    .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 20px; padding-bottom: max(32px, env(safe-area-inset-bottom)); font-size: 14px; color: var(--muted); }
+    .site-footer nav { display: flex; gap: 20px; }
+    [hidden] { display: none !important; }
+    .date { display: inline-flex; margin: 16px 0 0; padding: 4px 12px; border-radius: 999px; background: var(--cream); color: var(--accent); font-size: 14px; font-weight: 700; }
+    .glance { margin-top: 40px; }
+    .layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px; margin-top: 48px; }
+    .toc { flex: 1 1 200px; max-width: 240px; }
+    .toc p { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--muted); }
+    .toc ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc a { display: flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: 10px; font-size: 15px; color: var(--muted); text-decoration: none; }
+    .toc a:hover { color: var(--chip-text); background: var(--surface); }
+    .policy { flex: 999 1 560px; min-width: 0; background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 8px 32px 32px; }
+    .policy section { padding-top: 24px; scroll-margin-top: 16px; }
+    .policy section + section { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--hairline); }
+    .policy h2 { margin: 0 0 8px; font-size: 22px; font-weight: 700; }
+    .policy p { margin: 0; font-size: 16px; color: var(--body); }
+    .policy p + p, .policy ul + p { margin-top: 16px; }
+    .data { margin: 16px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+    .data li { background: var(--bg); border-radius: 14px; padding: 12px 14px; font-size: 15px; color: var(--muted); }
+    .data strong { display: block; color: var(--ink); }
+    .choices { margin: 12px 0 0; display: flex; flex-direction: column; gap: 12px; }
+    .choices div { display: flex; flex-wrap: wrap; gap: 4px 16px; padding: 14px 16px; border: 1px solid var(--hairline); border-radius: 16px; }
+    .choices dt { flex: 0 0 140px; font-size: 16px; font-weight: 700; }
+    .choices dd { flex: 999 1 320px; margin: 0; font-size: 16px; color: var(--body); }
+    .contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 12px; }
+    .contact .button { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 14px; background: var(--primary); color: #ffffff; font-size: 16px; font-weight: 700; text-decoration: none; }
+    .contact .button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .contact span { font-size: 15px; color: var(--muted); }
+    @media (max-width: 600px) {
+      .toc { max-width: none; }
+      .policy { padding: 4px 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="en" lang="en">
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>Sun &amp; Moon</span>
+        <div class="header-nav">
+          <nav class="pages" aria-label="Site"><a href="../support/#en">Support</a><a href="../privacy/#en" aria-current="page">Privacy</a></nav>
+          <label class="languages"><select data-lang-select aria-label="Language"><option value="en" selected>English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ja">日本語</option><option value="es">Español (España)</option><option value="es-419">Español (Latinoamérica)</option></select></label>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="intro">
+        <h1>Privacy Policy</h1>
+        <p class="date">Effective October 5, 2026</p>
+        <p class="lede">Sun &amp; Moon (“the app”) is provided by the developer listed on its App Store page. This policy explains what information the app uses and why.</p>
+      </div>
+      <section class="glance" aria-labelledby="en-glance">
+        <h2 class="eyebrow" id="en-glance">AT A GLANCE</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></span>
+            <h3>No account, no personal data</h3>
+            <p>Your game records stay on your device.</p>
+          </div>
+          <div class="card">
+            <span class="icon warm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15l2.5-6 2.5 6M7.8 13h3.4M15 9v6h1.5a3 3 0 0 0 0-6z"/></svg></span>
+            <h3>Ads by Google AdMob</h3>
+            <p>The ad SDK may collect data as described by Google. You decide whether to allow tracking.</p>
+          </div>
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+            <h3>Remove All Ads</h3>
+            <p>After you buy it, the app no longer starts the ad SDK.</p>
+          </div>
+        </div>
+      </section>
+      <div class="layout">
+        <nav class="toc" aria-labelledby="en-toc">
+          <p id="en-toc">ON THIS PAGE</p>
+          <ul>
+            <li><a href="#en-collect">What the app collects</a></li>
+            <li><a href="#en-purchases">Purchases</a></li>
+            <li><a href="#en-ads">Advertising</a></li>
+            <li><a href="#en-choices">Your choices</a></li>
+            <li><a href="#en-children">Children</a></li>
+            <li><a href="#en-changes">Changes</a></li>
+            <li><a href="#en-contact">Contact</a></li>
+          </ul>
+        </nav>
+        <article class="policy">
+          <section id="en-collect">
+            <h2>Information the app itself collects</h2>
+            <p>The app does not collect personal information and does not require an account. Your game records, such as best times, daily puzzle results, history, and puzzles in progress, are stored only on your device and are included in your device backups, such as iCloud Backup. You can delete your history in the app, and deleting the app removes all of this data from your device.</p>
+          </section>
+          <section id="en-purchases">
+            <h2>Purchases</h2>
+            <p>The “Remove All Ads” purchase is processed by Apple. The app receives only confirmation that the purchase was made and never sees your payment information. See <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a> for details.</p>
+          </section>
+          <section id="en-ads">
+            <h2>Advertising</h2>
+            <p>The app shows ads provided by Google AdMob through the Google Mobile Ads SDK. According to Google, the SDK may collect:</p>
+            <ul class="data">
+              <li><strong>IP address</strong>May be used to estimate the general location of your device</li>
+              <li><strong>Crash logs and diagnostic information</strong></li>
+              <li><strong>Performance data</strong>Such as app launch time, hang rate, or energy usage</li>
+              <li><strong>Device identifiers</strong>Such as the advertising identifier (IDFA) or other app- or developer-scoped identifiers</li>
+              <li><strong>Advertising data</strong>Such as the ads you have seen</li>
+              <li><strong>Product interactions</strong>Such as taps and ad views</li>
+            </ul>
+            <p>Google uses this information to show and measure ads, prevent fraud, and improve its services. Learn more in <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>.</p>
+          </section>
+          <section id="en-choices">
+            <h2>Your choices</h2>
+            <dl class="choices">
+              <div><dt>Tracking</dt><dd>The advertising identifier is used only if you allow tracking when the app asks. You can change this at any time in iOS Settings › Privacy &amp; Security › Tracking. If you do not allow tracking, the app still shows ads, but they are not personalized using the advertising identifier.</dd></div>
+              <div><dt>Ad consent</dt><dd>In regions where it is required, such as the European Economic Area and the United Kingdom, the app asks for your consent before using data for ads. You can review or withdraw your consent at any time in the app under Settings › Ad Privacy Choices.</dd></div>
+              <div><dt>Remove ads</dt><dd>After you buy “Remove All Ads”, the app stops requesting ads and no longer starts the Google Mobile Ads SDK when it opens.</dd></div>
+            </dl>
+          </section>
+          <section id="en-children">
+            <h2>Children</h2>
+            <p>The app is not directed to children under 13.</p>
+          </section>
+          <section id="en-changes">
+            <h2>Changes to this policy</h2>
+            <p>If this policy changes, the updated version will be posted on this page with a new effective date.</p>
+          </section>
+          <section id="en-contact">
+            <h2>Contact</h2>
+            <p>For privacy questions, email us.</p>
+            <div class="contact"><a class="button" href="mailto:support@lab076.dev"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>support@lab076.dev</a><span>More help is on the <a href="../support/#en">Support page</a>.</span></div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Sun &amp; Moon</span>
+        <nav><a href="../support/#en">Support</a><a href="../privacy/#en">Privacy Policy</a></nav>
+      </div>
+    </footer>
+  </div>
+  <div id="zh-Hant" lang="zh-Hant-TW">
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>Sun &amp; Moon</span>
+        <div class="header-nav">
+          <nav class="pages" aria-label="網站"><a href="../support/#zh-Hant">支援</a><a href="../privacy/#zh-Hant" aria-current="page">隱私權政策</a></nav>
+          <label class="languages"><select data-lang-select aria-label="語言"><option value="en">English</option><option value="zh-Hant" selected>繁體中文</option><option value="zh-Hans">简体中文</option><option value="ja">日本語</option><option value="es">Español (España)</option><option value="es-419">Español (Latinoamérica)</option></select></label>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="intro">
+        <h1>隱私權政策</h1>
+        <p class="date">生效日期：2026 年 10 月 5 日</p>
+        <p class="lede">Sun &amp; Moon App（以下稱「本 App」）由 App Store 頁面上列出的開發者提供。本政策說明本 App 使用哪些資訊，以及使用的原因。</p>
+      </div>
+      <section class="glance" aria-labelledby="zh-Hant-glance">
+        <h2 class="eyebrow" id="zh-Hant-glance">重點摘要</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></span>
+            <h3>不需要帳號，不收集個人資料</h3>
+            <p>你的遊戲紀錄留在你的裝置上。</p>
+          </div>
+          <div class="card">
+            <span class="icon warm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15l2.5-6 2.5 6M7.8 13h3.4M15 9v6h1.5a3 3 0 0 0 0-6z"/></svg></span>
+            <h3>廣告由 Google AdMob 提供</h3>
+            <p>廣告 SDK 可能依 Google 的說明收集資料。是否允許追蹤由你決定。</p>
+          </div>
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+            <h3>移除所有廣告</h3>
+            <p>購買後，本 App 不再啟動廣告 SDK。</p>
+          </div>
+        </div>
+      </section>
+      <div class="layout">
+        <nav class="toc" aria-labelledby="zh-Hant-toc">
+          <p id="zh-Hant-toc">本頁內容</p>
+          <ul>
+            <li><a href="#zh-Hant-collect">本 App 收集的資訊</a></li>
+            <li><a href="#zh-Hant-purchases">購買</a></li>
+            <li><a href="#zh-Hant-ads">廣告</a></li>
+            <li><a href="#zh-Hant-choices">你的選擇</a></li>
+            <li><a href="#zh-Hant-children">兒童</a></li>
+            <li><a href="#zh-Hant-changes">政策變更</a></li>
+            <li><a href="#zh-Hant-contact">聯絡我們</a></li>
+          </ul>
+        </nav>
+        <article class="policy">
+          <section id="zh-Hant-collect">
+            <h2>本 App 收集的資訊</h2>
+            <p>本 App 不收集個人資料，也不需要帳號。你的遊戲紀錄，包含最佳紀錄、每日一題成績、解題紀錄與進行中的題目，只存在你的裝置上，並會包含在裝置的備份中，例如 iCloud 備份。你可以在 App 內刪除解題紀錄；刪除 App 會從裝置上清除所有這些資料。</p>
+          </section>
+          <section id="zh-Hant-purchases">
+            <h2>購買</h2>
+            <p>「移除所有廣告」的購買由 Apple 處理。本 App 只會收到購買完成的確認，不會取得你的付款資訊。詳情請參考 <a href="https://www.apple.com/tw/legal/privacy/">Apple 的隱私權政策</a>。</p>
+          </section>
+          <section id="zh-Hant-ads">
+            <h2>廣告</h2>
+            <p>本 App 透過 Google Mobile Ads SDK 顯示 Google AdMob 提供的廣告。依據 Google 的說明，這個 SDK 可能收集：</p>
+            <ul class="data">
+              <li><strong>IP 位址</strong>可能用來推估裝置的大略位置</li>
+              <li><strong>當機紀錄與診斷資訊</strong></li>
+              <li><strong>效能資料</strong>例如 App 啟動時間、卡頓頻率或耗電量</li>
+              <li><strong>裝置識別碼</strong>例如廣告識別碼（IDFA），或限定於 App 或開發者範圍的識別碼</li>
+              <li><strong>廣告資料</strong>例如你看過的廣告</li>
+              <li><strong>互動資料</strong>例如點擊與廣告觀看</li>
+            </ul>
+            <p>Google 使用這些資訊來顯示與評估廣告、防止詐騙，以及改善服務。詳情請參考 <a href="https://policies.google.com/privacy?hl=zh-TW">Google 隱私權政策</a>與<a href="https://policies.google.com/technologies/partner-sites?hl=zh-TW">Google 如何使用合作夥伴網站或應用程式的資訊</a>。</p>
+          </section>
+          <section id="zh-Hant-choices">
+            <h2>你的選擇</h2>
+            <dl class="choices">
+              <div><dt>追蹤</dt><dd>只有在本 App 詢問時你選擇允許追蹤，才會使用廣告識別碼。你可以隨時到 iOS「設定 › 隱私權與安全性 › 追蹤」修改。不允許追蹤時，本 App 仍會顯示廣告，但不會用廣告識別碼提供個人化廣告。</dd></div>
+              <div><dt>廣告同意</dt><dd>在法規要求的地區，例如歐洲經濟區與英國，本 App 會在將資料用於廣告之前徵求你的同意。你可以隨時在 App 的「設定 › 廣告隱私權選項」查看或撤回同意。</dd></div>
+              <div><dt>移除廣告</dt><dd>購買「移除所有廣告」後，本 App 不再請求廣告，開啟時也不再啟動 Google Mobile Ads SDK。</dd></div>
+            </dl>
+          </section>
+          <section id="zh-Hant-children">
+            <h2>兒童</h2>
+            <p>本 App 不是針對 13 歲以下兒童設計。</p>
+          </section>
+          <section id="zh-Hant-changes">
+            <h2>政策變更</h2>
+            <p>本政策如有變更，會在本頁公布更新後的版本與新的生效日期。</p>
+          </section>
+          <section id="zh-Hant-contact">
+            <h2>聯絡我們</h2>
+            <p>有隱私相關問題時，請寄信給我們。</p>
+            <div class="contact"><a class="button" href="mailto:support@lab076.dev"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>support@lab076.dev</a><span>其他說明請參考<a href="../support/#zh-Hant">支援頁面</a>。</span></div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Sun &amp; Moon</span>
+        <nav><a href="../support/#zh-Hant">支援</a><a href="../privacy/#zh-Hant">隱私權政策</a></nav>
+      </div>
+    </footer>
+  </div>
+
+<div id="zh-Hans" lang="zh-Hans">
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>Sun &amp; Moon</span>
+        <div class="header-nav">
+          <nav class="pages" aria-label="网站"><a href="../support/#zh-Hans">支持</a><a href="../privacy/#zh-Hans" aria-current="page">隐私政策</a></nav>
+          <label class="languages"><select data-lang-select aria-label="语言"><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans" selected>简体中文</option><option value="ja">日本語</option><option value="es">Español (España)</option><option value="es-419">Español (Latinoamérica)</option></select></label>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="intro">
+        <h1>隐私政策</h1>
+        <p class="date">生效日期：2026年10月5日</p>
+        <p class="lede">Sun &amp; Moon（以下简称“本 App”）由其 App Store 页面上列出的开发者提供。本政策说明本 App 使用哪些信息，以及使用的原因。</p>
+      </div>
+      <section class="glance" aria-labelledby="zh-Hans-glance">
+        <h2 class="eyebrow" id="zh-Hans-glance">概览</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></span>
+            <h3>无需账户，不收集个人信息</h3>
+            <p>你的游戏记录只保存在你的设备上。</p>
+          </div>
+          <div class="card">
+            <span class="icon warm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15l2.5-6 2.5 6M7.8 13h3.4M15 9v6h1.5a3 3 0 0 0 0-6z"/></svg></span>
+            <h3>广告由 Google AdMob 提供</h3>
+            <p>广告 SDK 可能按照 Google 的说明收集数据。是否允许跟踪由你决定。</p>
+          </div>
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+            <h3>移除所有广告</h3>
+            <p>购买后，本 App 不再启动广告 SDK。</p>
+          </div>
+        </div>
+      </section>
+      <div class="layout">
+        <nav class="toc" aria-labelledby="zh-Hans-toc">
+          <p id="zh-Hans-toc">本页内容</p>
+          <ul>
+            <li><a href="#zh-Hans-collect">本 App 收集的信息</a></li>
+            <li><a href="#zh-Hans-purchases">购买</a></li>
+            <li><a href="#zh-Hans-ads">广告</a></li>
+            <li><a href="#zh-Hans-choices">你的选择</a></li>
+            <li><a href="#zh-Hans-children">儿童</a></li>
+            <li><a href="#zh-Hans-changes">政策变更</a></li>
+            <li><a href="#zh-Hans-contact">联系我们</a></li>
+          </ul>
+        </nav>
+        <article class="policy">
+          <section id="zh-Hans-collect">
+            <h2>本 App 自身收集的信息</h2>
+            <p>本 App 不收集个人信息，也不需要注册账户。你的游戏记录，例如最佳成绩、每日一题成绩、解题记录和进行中的题目，只存储在你的设备上，并会包含在设备备份（例如 iCloud 云备份）中。你可以在 App 内删除解题记录；删除 App 会从设备上移除所有这些数据。</p>
+          </section>
+          <section id="zh-Hans-purchases">
+            <h2>购买</h2>
+            <p>“移除所有广告”的购买由 Apple 处理。本 App 只会收到购买已完成的确认，绝不会获取你的付款信息。详情请参阅 <a href="https://www.apple.com.cn/legal/privacy/">Apple 的隐私政策</a>。</p>
+          </section>
+          <section id="zh-Hans-ads">
+            <h2>广告</h2>
+            <p>本 App 通过 Google Mobile Ads SDK 显示由 Google AdMob 提供的广告。根据 Google 的说明，该 SDK 可能收集：</p>
+            <ul class="data">
+              <li><strong>IP 地址</strong>可能用于估算你的设备的大致位置</li>
+              <li><strong>崩溃日志和诊断信息</strong></li>
+              <li><strong>性能数据</strong>例如 App 启动时间、卡顿率或耗电量</li>
+              <li><strong>设备标识符</strong>例如广告标识符（IDFA），或其他限于 App 或开发者范围的标识符</li>
+              <li><strong>广告数据</strong>例如你看过的广告</li>
+              <li><strong>产品交互</strong>例如轻点和广告浏览</li>
+            </ul>
+            <p>Google 使用这些信息来展示和衡量广告、防范欺诈，以及改进其服务。详情请参阅 <a href="https://policies.google.com/privacy?hl=zh-CN">Google 隐私权政策</a>和<a href="https://policies.google.com/technologies/partner-sites?hl=zh-CN">Google 如何使用来自使用其服务的网站或应用的信息</a>。</p>
+          </section>
+          <section id="zh-Hans-choices">
+            <h2>你的选择</h2>
+            <dl class="choices">
+              <div><dt>跟踪</dt><dd>只有在本 App 询问时你选择允许跟踪，才会使用广告标识符。你可以随时前往 iOS“设置”&gt;“隐私与安全性”&gt;“跟踪”更改此设置。如果你不允许跟踪，本 App 仍会显示广告，但不会使用广告标识符提供个性化广告。</dd></div>
+              <div><dt>广告同意</dt><dd>在法规有此要求的地区（例如欧洲经济区和英国），本 App 会在将数据用于广告之前征求你的同意。你可以随时在本 App 的“设置”&gt;“广告隐私选项”中查看或撤回同意。</dd></div>
+              <div><dt>移除广告</dt><dd>购买“移除所有广告”后，本 App 将停止请求广告，打开时也不再启动 Google Mobile Ads SDK。</dd></div>
+            </dl>
+          </section>
+          <section id="zh-Hans-children">
+            <h2>儿童</h2>
+            <p>本 App 并非面向 13 岁以下的儿童。</p>
+          </section>
+          <section id="zh-Hans-changes">
+            <h2>本政策的变更</h2>
+            <p>如果本政策有所变更，更新后的版本将连同新的生效日期发布在本页。</p>
+          </section>
+          <section id="zh-Hans-contact">
+            <h2>联系我们</h2>
+            <p>如有隐私相关问题，请发送电子邮件给我们。</p>
+            <div class="contact"><a class="button" href="mailto:support@lab076.dev"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>support@lab076.dev</a><span>更多帮助请参阅<a href="../support/#zh-Hans">支持页面</a>。</span></div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Sun &amp; Moon</span>
+        <nav><a href="../support/#zh-Hans">支持</a><a href="../privacy/#zh-Hans">隐私政策</a></nav>
+      </div>
+    </footer>
+  </div>
+
+<div id="ja" lang="ja">
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>Sun &amp; Moon</span>
+        <div class="header-nav">
+          <nav class="pages" aria-label="サイト"><a href="../support/#ja">サポート</a><a href="../privacy/#ja" aria-current="page">プライバシー</a></nav>
+          <label class="languages"><select data-lang-select aria-label="言語"><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ja" selected>日本語</option><option value="es">Español (España)</option><option value="es-419">Español (Latinoamérica)</option></select></label>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="intro">
+        <h1>プライバシーポリシー</h1>
+        <p class="date">施行日：2026年10月5日</p>
+        <p class="lede">Sun &amp; Moon（以下「本アプリ」）は、App Store のページに記載されている開発者が提供しています。本ポリシーでは、本アプリが使用する情報と、その理由を説明します。</p>
+      </div>
+      <section class="glance" aria-labelledby="ja-glance">
+        <h2 class="eyebrow" id="ja-glance">概要</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></span>
+            <h3>アカウント不要、個人情報なし</h3>
+            <p>ゲームの記録はお使いのデバイスに保存されます。</p>
+          </div>
+          <div class="card">
+            <span class="icon warm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15l2.5-6 2.5 6M7.8 13h3.4M15 9v6h1.5a3 3 0 0 0 0-6z"/></svg></span>
+            <h3>Google AdMob による広告</h3>
+            <p>広告 SDK は、Google の説明のとおりデータを収集する場合があります。トラッキングを許可するかどうかは、ご自身で決められます。</p>
+          </div>
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+            <h3>広告をすべて削除</h3>
+            <p>購入後は、本アプリは広告 SDK を起動しなくなります。</p>
+          </div>
+        </div>
+      </section>
+      <div class="layout">
+        <nav class="toc" aria-labelledby="ja-toc">
+          <p id="ja-toc">このページの内容</p>
+          <ul>
+            <li><a href="#ja-collect">本アプリが収集する情報</a></li>
+            <li><a href="#ja-purchases">購入</a></li>
+            <li><a href="#ja-ads">広告</a></li>
+            <li><a href="#ja-choices">ご利用者の選択</a></li>
+            <li><a href="#ja-children">お子様について</a></li>
+            <li><a href="#ja-changes">変更</a></li>
+            <li><a href="#ja-contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <article class="policy">
+          <section id="ja-collect">
+            <h2>本アプリ自体が収集する情報</h2>
+            <p>本アプリは個人情報を収集せず、アカウントも必要ありません。ベストタイム、デイリーパズルの結果、プレイ履歴、プレイ中の問題などのゲームの記録は、お使いのデバイス内にのみ保存され、iCloud バックアップなどのデバイスのバックアップに含まれます。プレイ履歴はアプリ内で削除できます。また、本アプリを削除すると、これらのデータはすべてデバイスから削除されます。</p>
+          </section>
+          <section id="ja-purchases">
+            <h2>購入</h2>
+            <p>「広告をすべて削除」の購入は Apple が処理します。本アプリが受け取るのは購入が完了したことの確認のみで、お支払い情報を目にすることはありません。詳しくは <a href="https://www.apple.com/jp/legal/privacy/">Apple のプライバシーポリシー</a>をご覧ください。</p>
+          </section>
+          <section id="ja-ads">
+            <h2>広告</h2>
+            <p>本アプリは、Google Mobile Ads SDK を通じて Google AdMob が提供する広告を表示します。Google によると、この SDK は次の情報を収集する場合があります。</p>
+            <ul class="data">
+              <li><strong>IP アドレス</strong>デバイスのおおよその位置の推定に使われる場合があります</li>
+              <li><strong>クラッシュログと診断情報</strong></li>
+              <li><strong>パフォーマンスデータ</strong>アプリの起動時間、フリーズの頻度、電力消費など</li>
+              <li><strong>デバイス ID</strong>広告識別子（IDFA）や、アプリまたは開発者の範囲に限定されたその他の識別子など</li>
+              <li><strong>広告データ</strong>表示された広告など</li>
+              <li><strong>製品の操作</strong>タップや広告の表示など</li>
+            </ul>
+            <p>Google はこれらの情報を、広告の表示と効果測定、不正の防止、サービスの改善に使用します。詳しくは <a href="https://policies.google.com/privacy?hl=ja">Google のプライバシーポリシー</a>と<a href="https://policies.google.com/technologies/partner-sites?hl=ja">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用</a>をご覧ください。</p>
+          </section>
+          <section id="ja-choices">
+            <h2>ご利用者の選択</h2>
+            <dl class="choices">
+              <div><dt>トラッキング</dt><dd>広告識別子は、本アプリからの確認でトラッキングを許可した場合にのみ使用されます。この設定は、iOS の「設定」&gt;「プライバシーとセキュリティ」&gt;「トラッキング」でいつでも変更できます。トラッキングを許可しない場合も広告は表示されますが、広告識別子を使ったパーソナライズは行われません。</dd></div>
+              <div><dt>広告への同意</dt><dd>欧州経済領域や英国など、同意が必要な地域では、本アプリは広告にデータを使用する前にご利用者の同意を求めます。同意の内容は、本アプリの「設定」&gt;「広告のプライバシー設定」でいつでも確認または撤回できます。</dd></div>
+              <div><dt>広告の削除</dt><dd>「広告をすべて削除」を購入すると、本アプリは広告をリクエストしなくなり、起動時に Google Mobile Ads SDK を起動しなくなります。</dd></div>
+            </dl>
+          </section>
+          <section id="ja-children">
+            <h2>お子様について</h2>
+            <p>本アプリは13歳未満のお子様を対象としていません。</p>
+          </section>
+          <section id="ja-changes">
+            <h2>本ポリシーの変更</h2>
+            <p>本ポリシーを変更した場合は、新しい施行日とともに更新版をこのページに掲載します。</p>
+          </section>
+          <section id="ja-contact">
+            <h2>お問い合わせ</h2>
+            <p>プライバシーに関するご質問は、メールでお問い合わせください。</p>
+            <div class="contact"><a class="button" href="mailto:support@lab076.dev"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>support@lab076.dev</a><span>その他のヘルプは<a href="../support/#ja">サポートページ</a>をご覧ください。</span></div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Sun &amp; Moon</span>
+        <nav><a href="../support/#ja">サポート</a><a href="../privacy/#ja">プライバシーポリシー</a></nav>
+      </div>
+    </footer>
+  </div>
+
+<div id="es" lang="es-ES">
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>Sun &amp; Moon</span>
+        <div class="header-nav">
+          <nav class="pages" aria-label="Sitio"><a href="../support/#es">Soporte</a><a href="../privacy/#es" aria-current="page">Privacidad</a></nav>
+          <label class="languages"><select data-lang-select aria-label="Idioma"><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ja">日本語</option><option value="es" selected>Español (España)</option><option value="es-419">Español (Latinoamérica)</option></select></label>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="intro">
+        <h1>Política de privacidad</h1>
+        <p class="date">En vigor desde el 5 de octubre de 2026</p>
+        <p class="lede">Sun &amp; Moon («la app») la ofrece el desarrollador que figura en su página del App Store. Esta política explica qué información usa la app y por qué.</p>
+      </div>
+      <section class="glance" aria-labelledby="es-glance">
+        <h2 class="eyebrow" id="es-glance">EN RESUMEN</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></span>
+            <h3>Sin cuenta ni datos personales</h3>
+            <p>Tus registros de juego se quedan en tu dispositivo.</p>
+          </div>
+          <div class="card">
+            <span class="icon warm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15l2.5-6 2.5 6M7.8 13h3.4M15 9v6h1.5a3 3 0 0 0 0-6z"/></svg></span>
+            <h3>Anuncios de Google AdMob</h3>
+            <p>El SDK de anuncios puede recopilar datos según lo descrito por Google. Tú decides si permites el rastreo.</p>
+          </div>
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+            <h3>Eliminar todos los anuncios</h3>
+            <p>Después de comprarlo, la app deja de iniciar el SDK de anuncios.</p>
+          </div>
+        </div>
+      </section>
+      <div class="layout">
+        <nav class="toc" aria-labelledby="es-toc">
+          <p id="es-toc">EN ESTA PÁGINA</p>
+          <ul>
+            <li><a href="#es-collect">Qué recopila la app</a></li>
+            <li><a href="#es-purchases">Compras</a></li>
+            <li><a href="#es-ads">Publicidad</a></li>
+            <li><a href="#es-choices">Tus opciones</a></li>
+            <li><a href="#es-children">Menores</a></li>
+            <li><a href="#es-changes">Cambios</a></li>
+            <li><a href="#es-contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <article class="policy">
+          <section id="es-collect">
+            <h2>Información que recopila la propia app</h2>
+            <p>La app no recopila información personal ni requiere una cuenta. Tus registros de juego, como los mejores tiempos, los resultados de los puzles diarios, el historial y los puzles en curso, se guardan solo en tu dispositivo y se incluyen en sus copias de seguridad, como la copia de seguridad de iCloud. Puedes borrar tu historial desde la app, y al eliminar la app se borran todos estos datos de tu dispositivo.</p>
+          </section>
+          <section id="es-purchases">
+            <h2>Compras</h2>
+            <p>Apple procesa la compra «Eliminar todos los anuncios». La app solo recibe la confirmación de que se ha realizado la compra y nunca ve tus datos de pago. Consulta la <a href="https://www.apple.com/es/legal/privacy/">Política de privacidad de Apple</a> para más información.</p>
+          </section>
+          <section id="es-ads">
+            <h2>Publicidad</h2>
+            <p>La app muestra anuncios de Google AdMob mediante el SDK de Google Mobile Ads. Según Google, el SDK puede recopilar:</p>
+            <ul class="data">
+              <li><strong>Dirección IP</strong>Puede usarse para estimar la ubicación aproximada de tu dispositivo</li>
+              <li><strong>Registros de fallos e información de diagnóstico</strong></li>
+              <li><strong>Datos de rendimiento</strong>Como el tiempo de inicio de la app, la frecuencia de bloqueos o el consumo de energía</li>
+              <li><strong>Identificadores del dispositivo</strong>Como el identificador de publicidad (IDFA) u otros identificadores limitados a la app o al desarrollador</li>
+              <li><strong>Datos de publicidad</strong>Como los anuncios que has visto</li>
+              <li><strong>Interacciones con el producto</strong>Como los toques y las visualizaciones de anuncios</li>
+            </ul>
+            <p>Google usa esta información para mostrar y medir anuncios, prevenir el fraude y mejorar sus servicios. Más información en la <a href="https://policies.google.com/privacy?hl=es">Política de privacidad de Google</a> y en <a href="https://policies.google.com/technologies/partner-sites?hl=es">Cómo utiliza Google la información de sitios web o aplicaciones que utilizan sus servicios</a>.</p>
+          </section>
+          <section id="es-choices">
+            <h2>Tus opciones</h2>
+            <dl class="choices">
+              <div><dt>Rastreo</dt><dd>El identificador de publicidad solo se usa si permites el rastreo cuando la app te lo pregunta. Puedes cambiarlo en cualquier momento en Ajustes de iOS › Privacidad y seguridad › Rastreo. Si no permites el rastreo, la app sigue mostrando anuncios, pero no se personalizan mediante el identificador de publicidad.</dd></div>
+              <div><dt>Consentimiento para anuncios</dt><dd>En las regiones donde es obligatorio, como el Espacio Económico Europeo y el Reino Unido, la app te pide tu consentimiento antes de usar datos para anuncios. Puedes revisar o retirar tu consentimiento en cualquier momento en la app, en Ajustes › Opciones de privacidad de anuncios.</dd></div>
+              <div><dt>Eliminar anuncios</dt><dd>Después de comprar «Eliminar todos los anuncios», la app deja de solicitar anuncios y ya no inicia el SDK de Google Mobile Ads al abrirse.</dd></div>
+            </dl>
+          </section>
+          <section id="es-children">
+            <h2>Menores</h2>
+            <p>La app no está dirigida a menores de 13 años.</p>
+          </section>
+          <section id="es-changes">
+            <h2>Cambios en esta política</h2>
+            <p>Si esta política cambia, publicaremos la versión actualizada en esta página con una nueva fecha de entrada en vigor.</p>
+          </section>
+          <section id="es-contact">
+            <h2>Contacto</h2>
+            <p>Si tienes preguntas sobre privacidad, escríbenos.</p>
+            <div class="contact"><a class="button" href="mailto:support@lab076.dev"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>support@lab076.dev</a><span>Encontrarás más ayuda en la <a href="../support/#es">página de soporte</a>.</span></div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Sun &amp; Moon</span>
+        <nav><a href="../support/#es">Soporte</a><a href="../privacy/#es">Política de privacidad</a></nav>
+      </div>
+    </footer>
+  </div>
+
+<div id="es-419" lang="es-419">
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff2df"/><path d="M100 0V100H0Z" fill="#2b2a62"/><g transform="translate(10 10) scale(1.7)"><circle cx="12" cy="12" r="5" fill="#f58e16"/><g stroke="#f58e16" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2M4.6 4.6 6 6M18 18l1.4 1.4M4.6 19.4 6 18M18 6l1.4-1.4"/></g></g><path transform="translate(52 52) scale(1.5)" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z" fill="#b8b8ff"/></svg></span>Sun &amp; Moon</span>
+        <div class="header-nav">
+          <nav class="pages" aria-label="Sitio"><a href="../support/#es-419">Soporte</a><a href="../privacy/#es-419" aria-current="page">Privacidad</a></nav>
+          <label class="languages"><select data-lang-select aria-label="Idioma"><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ja">日本語</option><option value="es">Español (España)</option><option value="es-419" selected>Español (Latinoamérica)</option></select></label>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="intro">
+        <h1>Política de privacidad</h1>
+        <p class="date">Vigente desde el 5 de octubre de 2026</p>
+        <p class="lede">Sun &amp; Moon (“la app”) es ofrecida por el desarrollador que aparece en su página del App Store. Esta política explica qué información usa la app y por qué.</p>
+      </div>
+      <section class="glance" aria-labelledby="es-419-glance">
+        <h2 class="eyebrow" id="es-419-glance">EN RESUMEN</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></span>
+            <h3>Sin cuenta ni datos personales</h3>
+            <p>Tus registros de juego se quedan en tu dispositivo.</p>
+          </div>
+          <div class="card">
+            <span class="icon warm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15l2.5-6 2.5 6M7.8 13h3.4M15 9v6h1.5a3 3 0 0 0 0-6z"/></svg></span>
+            <h3>Anuncios de Google AdMob</h3>
+            <p>El SDK de anuncios puede recopilar datos según lo que describe Google. Tú decides si permites el rastreo.</p>
+          </div>
+          <div class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg></span>
+            <h3>Eliminar todos los anuncios</h3>
+            <p>Después de comprarlo, la app ya no inicia el SDK de anuncios.</p>
+          </div>
+        </div>
+      </section>
+      <div class="layout">
+        <nav class="toc" aria-labelledby="es-419-toc">
+          <p id="es-419-toc">EN ESTA PÁGINA</p>
+          <ul>
+            <li><a href="#es-419-collect">Qué recopila la app</a></li>
+            <li><a href="#es-419-purchases">Compras</a></li>
+            <li><a href="#es-419-ads">Publicidad</a></li>
+            <li><a href="#es-419-choices">Tus opciones</a></li>
+            <li><a href="#es-419-children">Niños</a></li>
+            <li><a href="#es-419-changes">Cambios</a></li>
+            <li><a href="#es-419-contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <article class="policy">
+          <section id="es-419-collect">
+            <h2>Información que recopila la propia app</h2>
+            <p>La app no recopila información personal y no requiere una cuenta. Tus registros de juego, como los récords, los resultados del acertijo diario, el historial y los acertijos en curso, se guardan solo en tu dispositivo y se incluyen en los respaldos del dispositivo, como el respaldo en iCloud. Puedes borrar tu historial en la app, y al eliminar la app se borran todos estos datos de tu dispositivo.</p>
+          </section>
+          <section id="es-419-purchases">
+            <h2>Compras</h2>
+            <p>Apple procesa la compra “Eliminar todos los anuncios”. La app solo recibe la confirmación de que se realizó la compra y nunca ve tu información de pago. Consulta la <a href="https://www.apple.com/mx/legal/privacy/">Política de privacidad de Apple</a> para obtener más detalles.</p>
+          </section>
+          <section id="es-419-ads">
+            <h2>Publicidad</h2>
+            <p>La app muestra anuncios de Google AdMob a través del Google Mobile Ads SDK. Según Google, el SDK puede recopilar:</p>
+            <ul class="data">
+              <li><strong>Dirección IP</strong>Puede usarse para estimar la ubicación aproximada de tu dispositivo</li>
+              <li><strong>Registros de fallas e información de diagnóstico</strong></li>
+              <li><strong>Datos de rendimiento</strong>Como el tiempo de inicio de la app, la frecuencia de bloqueos o el consumo de energía</li>
+              <li><strong>Identificadores del dispositivo</strong>Como el identificador de publicidad (IDFA) u otros identificadores propios de la app o del desarrollador</li>
+              <li><strong>Datos de publicidad</strong>Como los anuncios que has visto</li>
+              <li><strong>Interacciones con el producto</strong>Como toques y visualizaciones de anuncios</li>
+            </ul>
+            <p>Google usa esta información para mostrar y medir anuncios, prevenir fraudes y mejorar sus servicios. Obtén más información en la <a href="https://policies.google.com/privacy?hl=es-419">Política de privacidad de Google</a> y en <a href="https://policies.google.com/technologies/partner-sites?hl=es-419">Cómo usa Google la información de sitios o apps que utilizan sus servicios</a>.</p>
+          </section>
+          <section id="es-419-choices">
+            <h2>Tus opciones</h2>
+            <dl class="choices">
+              <div><dt>Rastreo</dt><dd>El identificador de publicidad solo se usa si permites el rastreo cuando la app te lo pregunta. Puedes cambiar esto en cualquier momento en Configuración de iOS › Privacidad y seguridad › Rastreo. Si no permites el rastreo, la app sigue mostrando anuncios, pero no se personalizan con el identificador de publicidad.</dd></div>
+              <div><dt>Consentimiento para anuncios</dt><dd>En las regiones donde es obligatorio, como el Espacio Económico Europeo y el Reino Unido, la app te pide tu consentimiento antes de usar datos para anuncios. Puedes revisar o retirar tu consentimiento en cualquier momento en la app, en Configuración › Opciones de privacidad de anuncios.</dd></div>
+              <div><dt>Eliminar anuncios</dt><dd>Después de comprar “Eliminar todos los anuncios”, la app deja de solicitar anuncios y ya no inicia el Google Mobile Ads SDK al abrirse.</dd></div>
+            </dl>
+          </section>
+          <section id="es-419-children">
+            <h2>Niños</h2>
+            <p>La app no está dirigida a menores de 13 años.</p>
+          </section>
+          <section id="es-419-changes">
+            <h2>Cambios en esta política</h2>
+            <p>Si esta política cambia, la versión actualizada se publicará en esta página con una nueva fecha de entrada en vigor.</p>
+          </section>
+          <section id="es-419-contact">
+            <h2>Contacto</h2>
+            <p>Si tienes preguntas sobre privacidad, escríbenos por correo electrónico.</p>
+            <div class="contact"><a class="button" href="mailto:support@lab076.dev"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>support@lab076.dev</a><span>Encontrarás más ayuda en la <a href="../support/#es-419">página de soporte</a>.</span></div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Sun &amp; Moon</span>
+        <nav><a href="../support/#es-419">Soporte</a><a href="../privacy/#es-419">Política de privacidad</a></nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // 依瀏覽器語言只顯示一種語言；上方的選單可以切換。沒有 JavaScript 時所有語言都會顯示。
+    // 網址的 # 以語言開頭（#en、#zh-Hant-ads、#es-419-ads），用來決定語言與要捲動到的段落
+    // 網址 # 的開頭決定語言；es-419 要比 es 先比對
+    const languageOrder = ["zh-Hant", "zh-Hans", "es-419", "es", "ja", "en"];
+    function languageFromHash(hash) {
+      return languageOrder.find(lang => hash === lang || hash.startsWith(lang + "-")) ?? null;
+    }
+    // 瀏覽器的偏好語言：中文依繁簡分開，西班牙以外的西班牙文用拉丁美洲版
+    function browserLanguage() {
+      for (const tag of navigator.languages?.length ? navigator.languages : [navigator.language]) {
+        const t = tag.toLowerCase();
+        if (t.startsWith("zh")) return /hant|-tw|-hk|-mo/.test(t) ? "zh-Hant" : "zh-Hans";
+        if (t.startsWith("ja")) return "ja";
+        if (t === "es" || t.startsWith("es-es")) return "es";
+        if (t.startsWith("es")) return "es-419";
+        if (t.startsWith("en")) return "en";
+      }
+      return "en";
+    }
+    const htmlLang = {"en": "en", "zh-Hant": "zh-Hant-TW", "zh-Hans": "zh-Hans", "ja": "ja", "es": "es-ES", "es-419": "es-419"};
+    const pages = { "en": document.getElementById("en"), "zh-Hant": document.getElementById("zh-Hant"), "zh-Hans": document.getElementById("zh-Hans"), "ja": document.getElementById("ja"), "es": document.getElementById("es"), "es-419": document.getElementById("es-419") };
+    function show(lang) {
+      for (const [key, page] of Object.entries(pages)) page.hidden = key !== lang;
+      document.documentElement.lang = htmlLang[lang];
+      document.querySelectorAll("[data-lang-select]").forEach(select => select.value = lang);
+    }
+    function showFromLocation() {
+      const hash = location.hash.slice(1);
+      const lang = languageFromHash(hash) ?? browserLanguage();
+      show(lang);
+      const target = hash && hash !== lang ? document.getElementById(hash) : null;
+      if (target) target.scrollIntoView();
+      else window.scrollTo(0, 0);
+    }
+    showFromLocation();
+    window.addEventListener("hashchange", showFromLocation);
+    document.querySelectorAll("[data-lang-select]").forEach(select => select.addEventListener("change", () => {
+      show(select.value);
+      history.replaceState(null, "", "#" + select.value);
+      window.scrollTo(0, 0);
+    }));
+  </script>
+</body>
+</html>
